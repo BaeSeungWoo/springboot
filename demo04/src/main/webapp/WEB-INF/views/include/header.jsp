@@ -23,16 +23,17 @@
   
   <!-- Links -->
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item"><a class="nav-link" href="board/insert">BoardInsert</a> </li>
-    <li class="nav-item"><a class="nav-link" href="board/list">BoardList</a> </li>
+    <li class="nav-item"><a class="nav-link" href="/board/insert">BoardInsert</a> </li>
+    <li class="nav-item"><a class="nav-link" href="/board/list">BoardList</a> </li>
     </ul>
   
   <ul class = "navbar-nav">
+  <sec:authentication property = "principal" var = "pinfo"/>
   <sec:authorize access = "isAnonymous()">
   <li class = "nav-item"><a class = "nav-link" href = "/login">로그인</a></li>
   </sec:authorize>
   <sec:authorize access = "isAuthenticated()">
-  <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
+  <li class="nav-item"><a class="nav-link" href="/logout">로그아웃(${pinfo.username})</a></li>
   </sec:authorize>  
   </ul>  
        
